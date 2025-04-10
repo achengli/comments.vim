@@ -1,0 +1,37 @@
+"comments.txt" Simple plugin for text commenting 
+
+==============================================================================
+INTRODUCTION                                                    * comments *
+
+comments is a simple plugin that helps you commenting blocks of text applying 
+a shortcut in visual-mode.
+
+==============================================================================
+CONFIGURATION                                      * comments-configuration*
+
+comments can be configured to for file types support and to style how does
+it comments.
+
+" Contain all the extetnsion file supported with the single and multiple 
+" comment syntax.
+>
+  let g:comments#extensions = {...}
+<
+
+" If it's set to v:true, will use for every case the single comment form
+" line by line
+>
+  let g:comments#always_single = v:false
+<
+
+==============================================================================
+CONTRIBUTIONS                                     * comments-contributions *
+
+Acceptable and non-ambicious contributions and PR are welcome.
+
+==============================================================================
+LICENSE                                                 * comments-license *
+
+MIT License. Copyright @ 2025 Yassin Achengli.
+
+ vim:tw=78:ts=8:ft=help:norl:
