@@ -23,20 +23,22 @@ let g:comments#always_single = v:false
 
 function! comments#add_format(ftype, extension, single_comment, multiple_comment=-1)
   " Adds an entry to g:comments#format
-  if type(a:ftype) != type('') || type(a:extension) != type('') || type(a:single_comment) != type('') ||
-        \(type(a:multiple_comment) != type([]) && type(a:multiple_comment) != type(''))
+  if (type(a:ftype) != type('') || type(a:extension) != type('') 
+        \|| type(a:single_comment) != type('') ||
+        \(type(a:multiple_comment) != type([]) 
+        \&& type(a:multiple_comment) != type(-1)))
     echoerr 'comments#add_format: wrong input data type'
     return v:false
   endif
 
-  if type(a:multiple_comment) != type([])
+  if type(a:multiple_comment) == type([])
     if type(a:multiple_comment[0]) != type('') || type(a:multiple_comment[1]) != type('')
       echoerr 'comments#set_format: wrong input data type'
       return v:false
     endif
   endif
 
-  let g:comments#format[ftype] = {'extension': a:extension, 'single': a:single_comment,
+  let g:comments#extensions[a:ftype] = {'extension': a:extension, 'single': a:single_comment,
         \'multiple': a:multiple_comment}
   return v:true
 endfunc
