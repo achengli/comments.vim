@@ -136,3 +136,6 @@ function! comments#uncomment()
     call setline(idx + line_start, cline)
   endfor
 endfunc
+
+vnoremap <silent> <C-s> :<c-u>call comments#comment()<CR>
+vnoremap <silent> <C-d> :<c-u>call comments#uncomment()<CR>
