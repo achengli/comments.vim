@@ -27,7 +27,7 @@ let g:comments#extensions['your-file-type'] = {
 
 ## Contributions
 
-Acceptable and non-ambicious contributions are welcode.
+Acceptable and non-ambicious contributions are welcome.
 
 ## License
 

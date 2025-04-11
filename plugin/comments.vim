@@ -43,15 +43,8 @@ function! comments#add_format(ftype, extension, single_comment, multiple_comment
   return v:true
 endfunc
 
-function! comments#enumerate(l)
-  let r = []
-  let idx = 0
-  for e in a:l
-    call add(r, [idx, e])
-    let idx += 1
-  endfor
-  return r
-endfunc
+let s:script_dir = expand('<sfile>:p:h')
+execute 'source ' fnameescape(s:script_dir . '/functional.vim')
 
 function! comments#comment()
   " Comment a block of code (visual mode)
@@ -64,7 +57,7 @@ function! comments#comment()
   let line_end = getpos("'>")[1]
   let lines = getline(line_start, line_end)
   if !g:comments#extensions->has_key(&filetype)
-    echo 'comments#comment: file not supported'
+    echoerr 'comments#comment: file not supported'
     return v:false
   endif
 
@@ -80,14 +73,39 @@ function! comments#comment()
     let l:single = v:false
   endtry
 
-  if abs(line_end - line_start) == 0
+  function! Count_blank(s)
+    let c = 0
+    for k in a:s
+      if k == ' '
+        let c += 1
+      else
+        return c
+      endif
+    endfor 
+    return c
+  endfunc
+
+  if abs(line_end - line_start) == 0 " Only one line marked
     call setline(line_start, substitute(lines[0], '^\( *\)', '\1' . single_comment . '', 'g'))
   else
     if l:single
-      for [idx, line] in comments#enumerate(lines)
-        if len(line) > 0 && match(line, '^ *' . single_comment) == -1
-          call setline(line_start + idx,
-                \substitute(line, '^\( *\)', '\1' . single_comment .' ', 'g'))
+      let max_white_space=(1/0)
+
+      for l in lines
+        if Count_blank(l) < max_white_space && strlen(l) > 0
+          let max_white_space = Count_blank(l)
+        endif
+      endfor
+
+      for [idx, line] in functional#enumerate(lines)
+        if strlen(line) > 0 && match(line, '^ *' . single_comment) == -1
+          if max_white_space == 0
+            call setline(line_start + idx, single_comment . ' ' .
+                  \line)
+          else
+            call setline(line_start + idx, line[0:max_white_space-1] . single_comment . ' ' .
+                  \line[max_white_space:len(line)-1])
+          endif
         endif
       endfor
     else
@@ -113,7 +131,7 @@ function! comments#uncomment()
   let line_end = getpos("'>")[1]
   let lines = getline(line_start, line_end)
   if !g:comments#extensions->has_key(&filetype)
-    echo 'comments#comment: file not supported'
+    echoerr 'comments#comment: file not supported'
     return v:false
   endif
 
@@ -128,7 +146,7 @@ function! comments#uncomment()
   catch
     let l:mult = v:true
   endtry
-  for [idx, line] in comments#enumerate(lines)
+  for [idx, line] in functional#enumerate(lines)
     let cline = line
     if l:mult
       let cline = substitute(cline, comments#str2reg(mult_comment[0]) . ' ', '', 'g')
