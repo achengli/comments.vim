@@ -12,7 +12,7 @@
 let g:comments#extensions = {
       \'c': {'extension': 'c|h', 'single': '//', 'multiple': ['/*','*/']},
       \'cpp': {'extension': 'cpp|cc|hpp|h', 'single': '//', 'multiple': ['/*','*/']},
-      \'lua': {'extension': 'lua', 'single': '--', 'multiple': ['[[',']]']},
+      \'lua': {'extension': 'lua', 'single': '--', 'multiple': ['--[[',']]']},
       \'matlab': {'extension': 'm', 'single': '%', 'multiple': -1},
       \'octave': {'extension': 'm', 'single': '%', 'multiple': -1},
       \'python': {'extension': 'py', 'single': '#', 'multiple': -1},
