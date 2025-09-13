@@ -9,52 +9,52 @@
 " *********************************************************************
 
 let g:comments#extensions={
-\ 'awk':{'extension':'awk','single':'#','multiple':-1},
-\ 'bash':{'extension':'sh|bash','single':'#','multiple':-1},
-\ 'c':{'extension':'c|h','single':'//','multiple':['/*','*/']},
-\ 'clojure':{'extension':'clj|cljs|cljc','single':';;','multiple':-1},
-\ 'commonlisp':{'extension':'lisp|lsp|cl','single':';','multiple':-1},
-\ 'cpp':{'extension':'cpp|cc|cxx|hpp|h','single':'//','multiple':['/*','*/']},
-\ 'cs':{'extension':'cs','single':'//','multiple':['/*','*/']},
-\ 'css':{'extension':'css','single':'','multiple':['/*','*/']},
-\ 'dart':{'extension':'dart','single':'//','multiple':['/*','*/']},
-\ 'elixir':{'extension':'ex|exs','single':'#','multiple':-1},
-\ 'emacs-lisp':{'extension':'el|emacs','single':';','multiple':-1},
-\ 'erlang':{'extension':'erl|hrl','single':'%','multiple':-1},
-\ 'fsharp':{'extension':'fs|fsi|fsx','single':'//','multiple':['(*','*)']},
-\ 'fortran':{'extension':'f|for|f90','single':'!','multiple':-1},
-\ 'go':{'extension':'go','single':'//','multiple':['/*','*/']},
-\ 'groovy':{'extension':'groovy|gvy','single':'//','multiple':['/*','*/']},
-\ 'haskell':{'extension':'hs|lhs','single':'--','multiple':['{-','-}']},
-\ 'html':{'extension':'html|htm','single':'','multiple':['<!--','-->']},
-\ 'java':{'extension':'java','single':'//','multiple':['/*','*/']},
-\ 'javascript':{'extension':'js|mjs|cjs','single':'//','multiple':['/*','*/']},
-\ 'julia':{'extension':'jl','single':'#','multiple':['#=','=#']},
-\ 'kotlin':{'extension':'kt|kts','single':'//','multiple':['/*','*/']},
-\ 'lua':{'extension':'lua','single':'--','multiple':['--[[',']]']},
-\ 'matlab':{'extension':'m','single':'%','multiple':-1},
-\ 'nix':{'extension':'nix','single':'#','multiple':-1},
-\ 'objc':{'extension':'m|mm','single':'//','multiple':['/*','*/']},
-\ 'octave':{'extension':'m','single':'%','multiple':-1},
-\ 'perl':{'extension':'pl|pm','single':'#','multiple':-1},
-\ 'php':{'extension':'php','single':'//','multiple':['/*','*/']},
-\ 'powershell':{'extension':'ps1','single':'#','multiple':'<#,#>'},
-\ 'python':{'extension':'py','single':'#','multiple':['"""','"""']},
-\ 'r':{'extension':'r','single':'#','multiple':-1},
-\ 'ruby':{'extension':'rb','single':'#','multiple':-1},
-\ 'rust':{'extension':'rs','single':'//','multiple':['/*','*/']},
-\ 'scala':{'extension':'scala','single':'//','multiple':['/*','*/']},
-\ 'scheme':{'extension':'scm|ss','single':';','multiple':-1},
-\ 'shell':{'extension':'sh|zsh|bash','single':'#','multiple':-1},
-\ 'sql':{'extension':'sql','single':'--','multiple':['/*','*/']},
-\ 'swift':{'extension':'swift','single':'//','multiple':['/*','*/']},
-\ 'toml':{'extension':'toml','single':'#','multiple':-1},
-\ 'typescript':{'extension':'ts|tsx','single':'//','multiple':['/*','*/']},
-\ 'vim':{'extension':'vim','single':'"','multiple':-1},
-\ 'vimscript':{'extension':'vim','single':'"','multiple':-1},
-\ 'xml':{'extension':'xml|xsl|xsd','single':'','multiple':['<!--','-->']},
-\ 'yaml':{'extension':'yaml|yml','single':'#','multiple':-1},
-\ 'zig':{'extension':'zig','single':'//','multiple':['/*','*/']},
+\ "awk":{"extension":"awk","single":"#","multiple":-1},
+\ "bash":{"extension":"sh|bash","single":"#","multiple":-1},
+\ "c":{"extension":"c|h","single":"//","multiple":["/*","*/"]},
+\ "clojure":{"extension":"clj|cljs|cljc","single":";;","multiple":-1},
+\ "commonlisp":{"extension":"lisp|lsp|cl","single":";","multiple":-1},
+\ "cpp":{"extension":"cpp|cc|cxx|hpp|h","single":"//","multiple":["/*","*/"]},
+\ "cs":{"extension":"cs","single":"//","multiple":["/*","*/"]},
+\ "css":{"extension":"css","single":"","multiple":["/*","*/"]},
+\ "dart":{"extension":"dart","single":"//","multiple":["/*","*/"]},
+\ "elixir":{"extension":"ex|exs","single":"#","multiple":-1},
+\ "emacs-lisp":{"extension":"el|emacs","single":";","multiple":-1},
+\ "erlang":{"extension":"erl|hrl","single":"%","multiple":-1},
+\ "fsharp":{"extension":"fs|fsi|fsx","single":"//","multiple":["(*","*)"]},
+\ "fortran":{"extension":"f|for|f90","single":"!","multiple":-1},
+\ "go":{"extension":"go","single":"//","multiple":["/*","*/"]},
+\ "groovy":{"extension":"groovy|gvy","single":"//","multiple":["/*","*/"]},
+\ "haskell":{"extension":"hs|lhs","single":"--","multiple":["{-","-}"]},
+\ "html":{"extension":"html|htm","single":"","multiple":["<!--","-->"]},
+\ "java":{"extension":"java","single":"//","multiple":["/*","*/"]},
+\ "javascript":{"extension":"js|mjs|cjs","single":"//","multiple":["/*","*/"]},
+\ "julia":{"extension":"jl","single":"#","multiple":["#=","=#"]},
+\ "kotlin":{"extension":"kt|kts","single":"//","multiple":["/*","*/"]},
+\ "lua":{"extension":"lua","single":"--","multiple":["--[[","]]"]},
+\ "matlab":{"extension":"m","single":"%","multiple":-1},
+\ "nix":{"extension":"nix","single":"#","multiple":-1},
+\ "objc":{"extension":"m|mm","single":"//","multiple":["/*","*/"]},
+\ "octave":{"extension":"m","single":"%","multiple":-1},
+\ "perl":{"extension":"pl|pm","single":"#","multiple":-1},
+\ "php":{"extension":"php","single":"//","multiple":["/*","*/"]},
+\ "powershell":{"extension":"ps1","single":"#","multiple":"<#,#>"},
+\ "python":{"extension":"py","single":"#","multiple":["\"\"\"","\"\"\""]},
+\ "r":{"extension":"r","single":"#","multiple":-1},
+\ "ruby":{"extension":"rb","single":"#","multiple":-1},
+\ "rust":{"extension":"rs","single":"//","multiple":["/*","*/"]},
+\ "scala":{"extension":"scala","single":"//","multiple":["/*","*/"]},
+\ "scheme":{"extension":"scm|ss","single":";","multiple":-1},
+\ "shell":{"extension":"sh|zsh|bash","single":"#","multiple":-1},
+\ "sql":{"extension":"sql","single":"--","multiple":["/*","*/"]},
+\ "swift":{"extension":"swift","single":"//","multiple":["/*","*/"]},
+\ "toml":{"extension":"toml","single":"#","multiple":-1},
+\ "typescript":{"extension":"ts|tsx","single":"//","multiple":["/*","*/"]},
+\ "vim":{"extension":"vim","single":"\"","multiple":-1},
+\ "vimscript":{"extension":"vim","single":"\"","multiple":-1},
+\ "xml":{"extension":"xml|xsl|xsd","single":"","multiple":["<!--","-->"]},
+\ "yaml":{"extension":"yaml|yml","single":"#","multiple":-1},
+\ "zig":{"extension":"zig","single":"//","multiple":["/*","*/"]},
 \ }
 
 let g:comments#always_single = v:false
@@ -154,10 +154,10 @@ function! comments#comment()
 endfunc
 
 function! comments#str2reg(s)
-  let l:patterns = ['-', '*', '"', '+', '(', ')', '[', ']']
+  let l:patterns = ['-', '\*', '+', '(', ')', '[', ']']
   let l:ss = a:s
   for p in l:patterns
-    let l:ss = substitute(l:ss, p, '\' . p, 'g')
+    let l:ss = substitute(l:ss, p, "\\" . p, 'g')
   endfor
   return l:ss
 endfunc
@@ -184,12 +184,14 @@ function! comments#uncomment()
   catch
     let l:mult = v:true
   endtry
+
   for [idx, line] in functional#enumerate(lines)
     let cline = line
     if l:mult
-      let cline = substitute(cline, comments#str2reg(mult_comment[0]) . ' ', '', 'g')
-      let cline = substitute(cline, comments#str2reg(mult_comment[1]), '', 'g')
+      let cline = substitute(cline, comments#str2reg(mult_comment[0]) . " *", '', 'g')
+      let cline = substitute(cline, comments#str2reg(mult_comment[1]) . " *", '', 'g')
     endif
+
     let cline = substitute(cline, single_comment . ' ', '', 'g')
     call setline(idx + line_start, cline)
   endfor
