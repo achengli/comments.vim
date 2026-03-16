@@ -8,14 +8,18 @@
 "               of more file types.
 " *********************************************************************
 
- let s:CommentERROR          = 0
- let s:CommentOK             = 1
- let s:CommentUNDEFINED      = 2
- let s:CommentNOT_SUPORTED   = 3
-
+let s:CommentERROR          = 0
+let s:CommentOK             = 1
+let s:CommentUNDEFINED      = 2
+let s:CommentNOT_SUPORTED   = 3
+ 
 " Include functional.vim vimscript library
 let s:script_dir = expand('<sfile>:p:h')
 execute 'source ' fnameescape(s:script_dir . '/extensions.vim')
+
+function comments#strToRegex(str)
+    return escape(a:str, '[]()-+*')
+endfunction
 
 function! comments#newSyntaxComment (ftype, extension, single_comment, multiple_comment=-1)
     " Adds an entry to g:g:comments#extensions
@@ -67,7 +71,7 @@ endfunction
 
 function! comments#uncommentLine (line)
     call setline(a:line, substitute(getline(a:line), "^" .
-                \ g:comments#extensions[&filetype]["single"],
+                \ comments#strToRegex(g:comments#extensions[&filetype]["single"]),
                 \ "", ""))
 endfunction
 
@@ -80,7 +84,7 @@ function! comments#uncommentBlock (start, end)
         while l:idx <= a:end
             if (match(getline(l:idx), "^" . g:comments#extensions[&filetype]["single"])) != -1
                 call setline(l:idx, substitute(getline(l:idx), "^" .
-                            \ g:comments#extensions[&filetype]["single"], "", ""))
+                            \ comments#strToRegex(g:comments#extensions[&filetype]["single"]), "", ""))
             endif
             let l:idx += 1
         endwhile
