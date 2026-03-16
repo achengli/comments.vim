@@ -82,7 +82,8 @@ function! comments#uncommentBlock (start, end)
 
     if (!has_key(g:comments#extensions[&filetype], "multiple"))
         while l:idx <= a:end
-            if (match(getline(l:idx), "^" . g:comments#extensions[&filetype]["single"])) != -1
+            if (match(getline(l:idx), "^" . 
+                        \comments#strToRegex(g:comments#extensions[&filetype]["single"]))) != -1
                 call setline(l:idx, substitute(getline(l:idx), "^" .
                             \ comments#strToRegex(g:comments#extensions[&filetype]["single"]), "", ""))
             endif
@@ -93,9 +94,9 @@ function! comments#uncommentBlock (start, end)
 
     while l:idx <= a:end
         if (match(getline(l:idx), "^" . 
-                    \ g:comments#extensions[&filetype]["multiple"][0])) != -1
+                    \ comments#strToRegex(g:comments#extensions[&filetype]["multiple"][0]))) != -1
             call setline(l:idx, substitute(getline(l:idx),  "^" . 
-                    \ g:comments#extensions[&filetype]["multiple"][0], "", ""))
+                    \ comments#strToRegex(g:comments#extensions[&filetype]["multiple"][0]), "", ""))
             let l:reachStart = v:true
             break
         endif
@@ -104,9 +105,9 @@ function! comments#uncommentBlock (start, end)
     
     while l:idx <= a:end
         if (match(getline(l:idx), 
-                    \ g:comments#extensions[&filetype]["multiple"][1] . "$")) != -1
+                    \ comments#strToRegex(g:comments#extensions[&filetype]["multiple"][1]) . "$")) != -1
             call setline(l:idx, substitute(getline(l:idx), 
-                    \ g:comments#extensions[&filetype]["multiple"][1] . "$", "", ""))
+                    \ comments#strToRegex(g:comments#extensions[&filetype]["multiple"][1]) . "$", "", ""))
             let l:reachEnd = v:true
             break
         endif 
