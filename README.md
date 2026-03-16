@@ -1,4 +1,4 @@
-# 📜 Comments plugin for vim 📜
+# 📜 Easy comments 📜
 
 ---
 
@@ -8,34 +8,32 @@ shortcuts.
 
 Comments is configurable and easy to use.
 
-## Installation
-The plugin can be installed using a plugin manager like *vim Plug*
+## Installing comments.vim
 
-Using vim Plug you can introduce the following code portion in your vim config:
+### Plug vim installation
 ``` vim
 call plug#begin()
 Plug 'achengli/comments.vim' 
 call plug#end()
 ```
 
-Also you can specify a release using *"tag"*
+If you'd like, you can also install previous version
 
 ``` vim
 call plug#begin()
-Plug 'achengli/comments.vim' {'tag': 'v1.0'}
+Plug 'achengli/comments.vim' {'tag': 'v1.3'}
 call plug#end()
 ```
 
-## Usage
+## How to use it
 
-By default it has two shortcuts, \<C-s\> to **comment** a visual section and \<C-d\> 
-to **uncomment**.
+By default it has two shortcuts, *\<C-s\>* to **comment** a visual section and *\<C-d\>*
+to **uncomment**. `vnoremap` and `nnoremap` to change them.
 
-To can change the commands, use the function `comments#set_map` in after loading file `after/comments.rc.vim`
+If you want, you can include new syntax comments using `comments#newSyntaxComment` function, use it 
+in after/plugin/comments.rc.vim
 
-Add new supported file types using the variable `g:comments#extensions` adding a 
-new key or using the function that simplify the task `g:comments#add_format()` *(see `:help comments`)*
-
+Extensions are defined as bellow:
 ``` vim
 let g:comments#extensions['your-file-type'] = {
     \{'extensions': '<extensions>',
@@ -45,11 +43,9 @@ let g:comments#extensions['your-file-type'] = {
 ```
 
 ## Contributions
-
 Acceptable and non-ambicious contributions are welcome.
 
 ## License
-
-This project is under MIT license.
+[**MIT**](https://opensource.org/license/mit) licence
 
 **Copyright (c) 2025 Yassin Achengli BY-NC**
